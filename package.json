@@ -1,0 +1,25 @@
+{
+  "name": "awsutils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ssm": "ts-node ./ssm.ts",
+    "fmt": "prettier --write './**/*.{js,jsx,ts,tsx,json}'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^17.0.23",
+    "aws-sdk": "^2.1101.0",
+    "prettier": "^2.6.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
