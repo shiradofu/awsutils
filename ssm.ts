@@ -1,19 +1,24 @@
-import { SSM } from 'aws-sdk'
-import { PutParameterRequest } from 'aws-sdk/clients/ssm'
+import {
+  SSMClient,
+  PutParameterCommand,
+  PutParameterCommandInput,
+} from '@aws-sdk/client-ssm'
 import { REGION } from './config'
 
-const parameters: PutParameterRequest[] = [
-  { Name: '', Value: '', Type: 'SecureString' },
+const inputs: PutParameterCommandInput[] = [
+  { Name: '', Value: '' },
 ]
 
 const main = async () => {
-  const ssm = new SSM({ region: REGION })
-  for (const p of parameters) {
+  const client = new SSMClient({ region: REGION })
+  for (const i of inputs) {
     try {
-      await ssm.putParameter(p).promise()
-      console.log(`created: ${p.Name}`)
+      await client.send(
+        new PutParameterCommand({ Type: 'SecureString', Overwrite: true, ...i })
+      )
+      console.log(`created: ${i.Name}`)
     } catch (e) {
-      console.error(`error: ${p.Name}`)
+      console.error(`error: ${i.Name}`)
       console.error(e)
       return
     }
