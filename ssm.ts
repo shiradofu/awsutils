@@ -5,6 +5,11 @@ import {
 } from '@aws-sdk/client-ssm'
 import { REGION } from './config'
 
+// 既存のパラメータを取得したい場合:
+// aws ssm describe-parameters \
+//   --parameter-filters "Key=Name,Option=Contains,Values={/parameter/prefix}" \
+//   --output json --query "Parameters[*].Name"
+
 const inputs: PutParameterCommandInput[] = [
   { Name: '', Value: '' },
 ]
