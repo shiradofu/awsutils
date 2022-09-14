@@ -11,7 +11,7 @@ import { REGION } from './config'
 //   --output json --query "Parameters[*].Name"
 
 const inputs: PutParameterCommandInput[] = [
-  { Name: '', Value: '' },
+  // { Name: '', Value: '' },
 ]
 
 const main = async () => {
